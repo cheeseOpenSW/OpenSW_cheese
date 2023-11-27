@@ -13,7 +13,7 @@ const pool = mysql.createPool({
 });
 
 module.exports = pool;  //모듈로 내보내기
-
+//test
 // 스케줄링을 위한 패키지 추가
 const schedule = require('node-schedule');
 require('dotenv').config({path: "./config/sens.env"}); // sens.env 불러오기
