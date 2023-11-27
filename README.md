@@ -47,7 +47,7 @@
 ⚡그외 부분은 전체 팀원이 참여하였습니다.<br>
 
 ## 🔎배포 주소
-➡️http://34.64.96.174/
+➡️http://1`34.64.96.174/
   
 ## 🔗데모 영상
 ➡️https://drive.google.com/file/d/1ZMHqfsx6vgq1vBbidwAj9ZRgh3pym6Qa/view?usp=sharing
