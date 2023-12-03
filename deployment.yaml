@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cheese
+  labels:
+    app: cheese
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: cheese
+  template:
+    metadata:
+      labels:
+        app: cheese
+        tier: cheese
+    spec:
+      containers:
+      - name: cheese
+        image: elive7/opensw_cheese:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+          name: cheese
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cheese
+  labels:
+    app: cheese
+spec:
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: cheese
+    tier: cheese
+  type: LoadBalancer
