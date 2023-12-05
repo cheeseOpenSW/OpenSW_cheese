@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:18
 RUN mkdir –p /app
 COPY package*.json /app/
 COPY . /app/
