@@ -22,7 +22,7 @@ pipeline {
         stage("Push image") {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'elive7') {
                             myapp.push("latest")
                             myapp.push("${env.BUILD_ID}")
                     }
