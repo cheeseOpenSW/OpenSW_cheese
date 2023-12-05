@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: cheese
-        image: elive7/opensw_cheese:latest
+        image: theunghee02/open-sw-cheese:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 5000

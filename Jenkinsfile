@@ -1,10 +1,10 @@
 pipeline {
     agent any
     environment {
-        PROJECT_ID = 'opensw-398710'
+        PROJECT_ID = 'inspiring-code-383107'
         CLUSTER_NAME = 'kube'
         LOCATION = 'asia-northeast3-a'
-        CREDENTIALS_ID = '04418669-45e4-4205-a659-77603c5e96c2'
+        CREDENTIALS_ID = 'b72863ff-bdd5-4ec3-8f0b-59c77facc352'
     }
     stages {
         stage("Checkout code") {
@@ -15,14 +15,14 @@ pipeline {
         stage("Build image") {
             steps {
                 script {
-                    myapp = docker.build("elive7/opensw_cheese:${env.BUILD_ID}")
+                    myapp = docker.build("theunghee02/open-sw-cheese:${env.BUILD_ID}")
                 }
             }
         }
         stage("Push image") {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'elive7') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'db4d86bd-9721-45bc-9f1a-bd50bca92f4c') {
                             myapp.push("latest")
                             myapp.push("${env.BUILD_ID}")
                     }
