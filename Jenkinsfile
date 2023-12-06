@@ -35,9 +35,42 @@ pipeline {
 			}
             steps{
                 sh "sed -i 's/opensw_cheese:latest/opensw_cheese:${env.BUILD_ID}/g' deployment.yaml"
+                //secret.js
                 withCredentials([string(credentialsId: 'jwtsecret', variable: 'JWT_SECRET')]) {
-                // deployment.yaml 파일 편집
                     sh "sed -i 's/jwtsecretvalue/${JWT_SECRET}/g' deployment.yaml"
+                }
+                //database.env
+                withCredentials([string(credentialsId: 'DB_HOST', variable: 'DB_HOST')]) {
+                    sh "sed -i 's/DB_HOSTvalue/${DB_HOST}/g' deployment.yaml"
+                }
+                withCredentials([string(credentialsId: 'DB_NAME', variable: 'DB_NAME')]) {
+                    sh "sed -i 's/DB_NAMEvalue/${DB_NAME}/g' deployment.yaml"
+                }
+                withCredentials([string(credentialsId: 'DB_PORT', variable: 'DB_PORT')]) {
+                    sh "sed -i 's/DB_PORTvalue/${DB_PORT}/g' deployment.yaml"
+                }
+                withCredentials([string(credentialsId: 'DB_USER', variable: 'DB_USER')]) {
+                    sh "sed -i 's/DB_USERvalue/${DB_USER}/g' deployment.yaml"
+                }
+                withCredentials([string(credentialsId: 'DB_PW', variable: 'DB_PW')]) {
+                    sh "sed -i 's/DB_PWvalue/${DB_PW}/g' deployment.yaml"
+                }
+                //gpt
+                withCredentials([string(credentialsId: 'OPENAI_API_KEY', variable: 'OPENAI_API_KEY')]) {
+                    sh "sed -i 's/OPENAI_API_KEYvalue/${OPENAI_API_KEY}/g' deployment.yaml"
+                }
+                //sens.env
+                withCredentials([string(credentialsId: 'SENS_SERVICE_ID', variable: 'SENS_SERVICE_ID')]) {
+                    sh "sed -i 's/SENS_SERVICE_IDvalue/${SENS_SERVICE_ID}/g' deployment.yaml"
+                }
+                withCredentials([string(credentialsId: 'SENS_ACCESS_KEY', variable: 'SENS_ACCESS_KEY')]) {
+                    sh "sed -i 's/SENS_ACCESS_KEYvalue/${SENS_ACCESS_KEY}/g' deployment.yaml"
+                }
+                withCredentials([string(credentialsId: 'SENS_MYPHONENUM', variable: 'SENS_MYPHONENUM')]) {
+                    sh "sed -i 's/SENS_MYPHONENUMvalue/${SENS_MYPHONENUM}/g' deployment.yaml"
+                }
+                withCredentials([string(credentialsId: 'SENS_SECRET_KEY', variable: 'SENS_SECRET_KEY')]) {
+                    sh "sed -i 's/SENS_SECRET_KEYvalue/${SENS_SECRET_KEY}/g' deployment.yaml"
                 }
                 step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: false])
             }

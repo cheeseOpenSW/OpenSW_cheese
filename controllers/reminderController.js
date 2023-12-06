@@ -158,7 +158,8 @@ exports.sendSMS = async function (req, res) {
         }
     }
     if (Array.isArray(mediSMSResult)) {
-      // 메일을 보낼 시간에 대한 처리
+      
+      // 메일을 보낼 시간에 대한 처리      
       mediSMSResult.forEach((row) => {
         const time = row.medi_reminder_time; // medi_reminder_time 값
         const phoneNumber = row.gd_phone; // gd_phone 값
