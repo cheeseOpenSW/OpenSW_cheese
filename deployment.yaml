@@ -42,3 +42,11 @@ spec:
     app: cheese
     tier: cheese
   type: LoadBalancer
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: www
+type: Opaque
+data:
+  jwtsecret : Y2hlZXNlX2p3dF9zZWNyZXRfa2V5XzEyMzQ1Njc4OSE=
