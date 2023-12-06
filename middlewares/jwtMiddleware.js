@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const secret_config = require('../config/secret');
+//const secret_config = require('../config/secret');
 const baseResponse = require("../config/baseResponseStatus");
 
 
@@ -15,7 +15,7 @@ const jwtMiddleware = (req, res, next) => {
     const p = new Promise(
         (resolve, reject) => {
             // 토큰 검증
-            jwt.verify(token, secret_config.process.env.jwtsecret , (err, verifiedToken) => {
+            jwt.verify(token, process.env.jwtsecret , (err, verifiedToken) => {
                 if(err) reject(err);
                 resolve(verifiedToken)
             })

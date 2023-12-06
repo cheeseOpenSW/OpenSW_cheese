@@ -1,6 +1,6 @@
 const reminderService = require('../services/reminderService');
 const jwt = require('jsonwebtoken');
-const secret = require('../config/secret');
+//const secret = require('../config/secret');
 const baseResponse = require("../config/baseResponseStatus");
 const path = require('path');
 const axios = require('axios');
