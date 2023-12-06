@@ -1,11 +1,13 @@
 //connect database
 //require('dotenv').config({path: "./config/database.env"});
 const mysql = require ('mysql2');
+const intport = parseInt(process.env.DB_PORT, 10);
+
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PW,
-    port: process.env.DB_PORT,
+    port: intport,
     database: process.env.DB_NAME,
     waitForConnections: true,
     insecureAuth: true,
