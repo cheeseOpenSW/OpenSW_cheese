@@ -66,9 +66,9 @@ pipeline {
                 withCredentials([string(credentialsId: 'SENS_ACCESS_KEY', variable: 'SENS_ACCESS_KEY')]) {
                     sh "sed -i 's/SENS_ACCESS_KEYvalue/${SENS_ACCESS_KEY}/g' deployment.yaml"
                 }
-                withCredentials([string(credentialsId: 'SENS_MYPHONENUM', variable: 'SENS_MYPHONENUM')]) {
-                    sh "sed -i 's/SENS_MYPHONENUMvalue/${SENS_MYPHONENUM.toString()}/g' deployment.yaml"
-                }
+                // withCredentials([string(credentialsId: 'SENS_MYPHONENUM', variable: 'SENS_MYPHONENUM')]) {
+                //     sh "sed -i 's/SENS_MYPHONENUMvalue/${SENS_MYPHONENUM.toString()}/g' deployment.yaml"
+                // }
                 withCredentials([string(credentialsId: 'SENS_SECRET_KEY', variable: 'SENS_SECRET_KEY')]) {
                     sh "sed -i 's/SENS_SECRET_KEYvalue/${SENS_SECRET_KEY}/g' deployment.yaml"
                 }

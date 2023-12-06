@@ -5,7 +5,7 @@ metadata:
   labels:
     app: cheese
 spec:
-  replicas: "3"
+  replicas: 3
   strategy:
     type: Recreate
   selector:
@@ -38,8 +38,8 @@ spec:
           value: SENS_SERVICE_IDvalue
         - name: SENS_ACCESS_KEY
           value: SENS_ACCESS_KEYvalue 
-        - name: SENS_MYPHONENUM
-          value: SENS_MYPHONENUMvalue    
+        # - name: SENS_MYPHONENUM
+        #   value: SENS_MYPHONENUMvalue    
         - name: SENS_SECRET_KEY
           value: SENS_SECRET_KEYvalue   
         ports:
