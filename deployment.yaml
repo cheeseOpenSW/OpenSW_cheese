@@ -28,8 +28,6 @@ spec:
           value: DB_HOSTvalue
         - name: DB_NAME
           value: DB_NAMEvalue
-        - name: DB_PORT
-          value: DB_PORTvalue 
         - name: DB_USER
           value: DB_USERvalue 
         - name: DB_PW
