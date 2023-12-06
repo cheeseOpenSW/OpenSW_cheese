@@ -2,7 +2,7 @@ const calendarService = require('../services/calendarService');
 const path = require('path');
 const calendarDate = require('../public/js/calendar.js');
 const jwt = require('jsonwebtoken');
-const secret = require('../config/secret');
+const secret = require('/app/config/secret');
 const querystring = require('querystring');
 const baseResponse = require("../config/baseResponseStatus");
 
