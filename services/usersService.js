@@ -3,7 +3,7 @@ const pool = require('../main');
 const usersModel = require('../models/usersModel');
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-const secret = require('../config/secret');
+//const secret = require('../config/secret');
 const baseResponse = require("../config/baseResponseStatus");
 
 // 회원가입
