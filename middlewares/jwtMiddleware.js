@@ -15,7 +15,7 @@ const jwtMiddleware = (req, res, next) => {
     const p = new Promise(
         (resolve, reject) => {
             // 토큰 검증
-            jwt.verify(token, secret_config.jwtsecret , (err, verifiedToken) => {
+            jwt.verify(token, secret_config.process.env.jwtsecret , (err, verifiedToken) => {
                 if(err) reject(err);
                 resolve(verifiedToken)
             })

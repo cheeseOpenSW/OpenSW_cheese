@@ -1,6 +1,6 @@
 const communityService = require('../services/communityService');
 const jwt = require('jsonwebtoken');
-const secret = require('../config/secret');
+//const secret = require('../config/secret');
 const baseResponse = require("../config/baseResponseStatus");
 const path = require('path');
 const querystring = require('querystring');
@@ -10,7 +10,7 @@ exports.getCommunity = async function (req, res) {
     const token = req.cookies.x_auth;
     
     if(token) {
-      const decodedToken = jwt.verify(token, secret.jwtsecret); // 토큰 검증, 복호화 
+      const decodedToken = jwt.verify(token, process.env.jwtsecret); // 토큰 검증, 복호화 
       const user_id = decodedToken.user_id; // user_id를 추출
 
       // validation
@@ -53,7 +53,7 @@ exports.getWrite = async function (req, res) {
   const token = req.cookies.x_auth;
     
     if(token) {
-      const decodedToken = jwt.verify(token, secret.jwtsecret); // 토큰 검증, 복호화 
+      const decodedToken = jwt.verify(token, process.env.jwtsecret); // 토큰 검증, 복호화 
       const user_id = decodedToken.user_id; // user_id를 추출
       const board_id = req.params.board_id;
       const title = req.params.title;
@@ -97,7 +97,7 @@ exports.getWorryList = async function (req, res) {
   const token = req.cookies.x_auth;
   if (token) {
       try {
-          const decodedToken = jwt.verify(token, secret.jwtsecret);
+          const decodedToken = jwt.verify(token, process.env.jwtsecret);
           const user_id = decodedToken.user_id;
 
           if (!user_id) {
@@ -146,7 +146,7 @@ exports.getInfoList = async function (req, res) {
     const token = req.cookies.x_auth;
     if (token) {
         try {
-            const decodedToken = jwt.verify(token, secret.jwtsecret);
+            const decodedToken = jwt.verify(token, process.env.jwtsecret);
             const user_id = decodedToken.user_id;
 
             if (!user_id) {
@@ -204,7 +204,7 @@ exports.getComment = async function (req, res) {
 exports.postBoard = async function (req, res) {
     const token = req.cookies.x_auth;
     if (token) {
-        const decodedToken = jwt.verify(token, secret.jwtsecret); // 토큰 검증, 복호화
+        const decodedToken = jwt.verify(token, process.env.jwtsecret); // 토큰 검증, 복호화
         const user_id = decodedToken.user_id; // user_id를 추출
         // console.log(req.body);
         var updated_at = new Date(); 
@@ -268,7 +268,7 @@ exports.postBoard = async function (req, res) {
   exports.postComment = async function (req, res) {
     const token = req.cookies.x_auth;
     if (token) {
-        const decodedToken = jwt.verify(token, secret.jwtsecret); // 토큰 검증, 복호화
+        const decodedToken = jwt.verify(token, process.env.jwtsecret); // 토큰 검증, 복호화
         const user_id = decodedToken.user_id; // user_id를 추출
         // console.log(req.body);
         // var updated_at = new Date(); 

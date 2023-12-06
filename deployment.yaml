@@ -21,6 +21,9 @@ spec:
       - name: cheese
         image: theunghee02/open-sw-cheese:latest
         imagePullPolicy: Always
+        env:
+        - name: jwtsecret
+          value: jwtsecretvalue
         ports:
         - containerPort: 5000
           name: cheese

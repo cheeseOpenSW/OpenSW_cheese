@@ -2,7 +2,7 @@ const calendarService = require('../services/calendarService');
 const path = require('path');
 const calendarDate = require('../public/js/calendar.js');
 const jwt = require('jsonwebtoken');
-const secret = require('/app/config/secret');
+//const secret = require('/app/config/secret');
 const querystring = require('querystring');
 const baseResponse = require("../config/baseResponseStatus");
 
@@ -10,7 +10,7 @@ const baseResponse = require("../config/baseResponseStatus");
 exports.getCalendar = async function (req, res) {
   const token = req.cookies.x_auth;
   if (token) {
-    const decodedToken = jwt.verify(token, secret.jwtsecret); // 토큰 검증, 복호화
+    const decodedToken = jwt.verify(token, process.env.jwtsecret); // 토큰 검증, 복호화
     const user_id = decodedToken.user_id; // user_id를 추출
   
     let date = req.query.selectedYear + req.query.selectedMonth + req.query.selectedDate;
@@ -58,7 +58,7 @@ exports.getCalendar = async function (req, res) {
 exports.postCalendar = async function (req, res) {
   const token = req.cookies.x_auth;
   if (token) {
-      const decodedToken = jwt.verify(token, secret.jwtsecret); // 토큰 검증, 복호화
+      const decodedToken = jwt.verify(token, process.env.jwtsecret); // 토큰 검증, 복호화
       const user_id = decodedToken.user_id; // user_id를 추출
       console.log(req.body);
       const date = req.query.selectedYear + req.query.selectedMonth + req.query.selectedDate;
@@ -122,7 +122,7 @@ exports.postCalendar = async function (req, res) {
 exports.postFile = async function (req, res) {  
   const token = req.cookies.x_auth; 
   if (token) {
-    const decodedToken = jwt.verify(token, secret.jwtsecret); // 토큰 검증, 복호화
+    const decodedToken = jwt.verify(token, process.env.jwtsecret); // 토큰 검증, 복호화
     const user_id = decodedToken.user_id; // user_id를 추출
     
     const date = req.body.fileDate;
@@ -190,7 +190,7 @@ exports.postFile = async function (req, res) {
 exports.postMindDiary = async function (req, res) {
   const token = req.cookies.x_auth;
   if (token) {
-      const decodedToken = jwt.verify(token, secret.jwtsecret); // 토큰 검증, 복호화
+      const decodedToken = jwt.verify(token, process.env.jwtsecret); // 토큰 검증, 복호화
       const user_id = decodedToken.user_id; // user_id를 추출
       const date = req.query.selectedYear + req.query.selectedMonth + req.query.selectedDate; //쿼리스트링에서 날짜 추출
       //const date = '2023-09-20'
