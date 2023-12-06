@@ -35,7 +35,10 @@ pipeline {
 			}
             steps{
                 sh "sed -i 's/opensw_cheese:latest/opensw_cheese:${env.BUILD_ID}/g' deployment.yaml"
-                sh "sed -i 's/jwtsecretvalue/${jwtsecret}/g' deployment.yaml"
+                withCredentials([string(credentialsId: 'jwtsecret', variable: 'JWT_SECRET')]) {
+                // deployment.yaml 파일 편집
+                    sh "sed -i 's/jwtsecretvalue/${JWT_SECRET}/g' deployment.yaml"
+                }
                 step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: false])
             }
         }
