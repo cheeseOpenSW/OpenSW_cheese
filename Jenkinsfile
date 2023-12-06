@@ -46,9 +46,9 @@ pipeline {
                 withCredentials([string(credentialsId: 'DB_NAME', variable: 'DB_NAME')]) {
                     sh "sed -i 's/DB_NAMEvalue/${DB_NAME}/g' deployment.yaml"
                 }
-                withCredentials([string(credentialsId: 'DB_PORT', variable: 'DB_PORT')]) {
-                     sh "sed -i 's/DB_PORTvalue/${DB_PORT.toString()}/g' deployment.yaml"
-                }
+                // withCredentials([string(credentialsId: 'DB_PORT', variable: 'DB_PORT')]) {
+                //      sh "sed -i 's/DB_PORTvalue/${DB_PORT.toString()}/g' deployment.yaml"
+                // }
                 withCredentials([string(credentialsId: 'DB_USER', variable: 'DB_USER')]) {
                     sh "sed -i 's/DB_USERvalue/${DB_USER}/g' deployment.yaml"
                 }
