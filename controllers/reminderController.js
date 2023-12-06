@@ -157,7 +157,7 @@ exports.sendSMS = async function (req, res) {
             return baseResponse.SMS_SEND_FAILURE;
         }
     }
-    if (mediSMSResult && mediSMSResult.length > 0) {
+    if (Array.isArray(mediSMSResult)) {
       // 메일을 보낼 시간에 대한 처리
       mediSMSResult.forEach((row) => {
         const time = row.medi_reminder_time; // medi_reminder_time 값
