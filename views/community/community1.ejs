@@ -22,7 +22,42 @@
   const communityMLinks = document.getElementsByClassName("communityactiveM");
 
   // 커뮤니티 링크에 active 클래스 추가, 다른 링크에서 active 클래스 제거
-  for (const link of ot기</span>
+
+  for (const link of otherMLinks) {
+    link.classList.remove("activeM");
+  }
+
+  for (const link of communityMLinks) {
+    link.classList.add("activeM");
+  }
+</script>
+
+<!-- MAIN SECTION -->
+<div class="community_wrapper">  
+
+  <a class="select1" href="/community/worryList">
+    <button class="button1" type="button" value="1">
+      <label>
+        <span>고민상담소 고민 상담하기</span>
+      </label>
+    </button>
+  </a>
+  
+  <a class="select2" href="/community/infoList">
+    <button class="button2" type="button" value="2">
+      <label>
+        <span>정보 공유</span>
+      </label>
+    </button>
+  </a>
+  
+
+  <div class="community_container">
+    <div class="top">
+      <a href="/community/write">
+        <button class="write" type="button" value="1">   
+          <label>
+            <span>글 작성</span>
           </label> 
         </button>
       </a>
