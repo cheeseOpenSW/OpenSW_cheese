@@ -72,7 +72,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'SENS_SECRET_KEY', variable: 'SENS_SECRET_KEY')]) {
                     sh "sed -i 's/SENS_SECRET_KEYvalue/${SENS_SECRET_KEY}/g' deployment.yaml"
                 }
-                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: false])
+                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID])
             }
         }
     }    
