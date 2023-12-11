@@ -45,7 +45,6 @@ spec:
         ports:
         - containerPort: 5000
           name: cheese
-      restartPolicy: Always
 ---
 apiVersion: v1
 kind: Service
