@@ -34,7 +34,7 @@ pipeline {
 				branch 'main'
 			}
             steps{
-                sh "sed -i 's/opensw_cheese:latest/opensw_cheese:${env.BUILD_ID}/g' deployment.yaml"
+                sh "sed -i 's/open-sw-cheese:latest/open-sw-cheese:${env.BUILD_ID}/g' deployment.yaml"
                 echo "BUILD_ID: ${env.BUILD_ID}"
                 //secret.js
                 withCredentials([string(credentialsId: 'jwtsecret', variable: 'JWT_SECRET')]) {
