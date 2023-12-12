@@ -28,6 +28,8 @@ spec:
           value: DB_HOSTvalue
         - name: DB_NAME
           value: DB_NAMEvalue
+        - name: DB_PORT
+          value:  "DB_PORTvalue"
         - name: DB_USER
           value: DB_USERvalue 
         - name: DB_PW
@@ -38,8 +40,8 @@ spec:
           value: SENS_SERVICE_IDvalue
         - name: SENS_ACCESS_KEY
           value: SENS_ACCESS_KEYvalue 
-        # - name: SENS_MYPHONENUM
-        #   value: SENS_MYPHONENUMvalue    
+        - name: SENS_MYPHONENUM
+          value: "SENS_MYPHONENUMvalue"   
         - name: SENS_SECRET_KEY
           value: SENS_SECRET_KEYvalue   
         ports:
@@ -60,4 +62,4 @@ spec:
     app: cheese
     tier: cheese
   type: LoadBalancer
-#test
+#tests
