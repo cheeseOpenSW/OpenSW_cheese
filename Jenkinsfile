@@ -48,7 +48,7 @@ pipeline {
                     sh "sed -i 's/DB_NAMEvalue/${DB_NAME}/g' deployment.yaml"
                 }
                 // withCredentials([string(credentialsId: 'DB_PORT', variable: 'DB_PORT')]) {
-                //      sh "sed -i 's/DB_PORTvalue/${DB_PORT.toString()}/g' deployment.yaml"
+                //      sh "sed -i 's/DB_PORTvalue/${DB_PORT}/g' deployment.yaml"
                 // }
                 withCredentials([string(credentialsId: 'DB_USER', variable: 'DB_USER')]) {
                     sh "sed -i 's/DB_USERvalue/${DB_USER}/g' deployment.yaml"
@@ -67,12 +67,12 @@ pipeline {
                 withCredentials([string(credentialsId: 'SENS_ACCESS_KEY', variable: 'SENS_ACCESS_KEY')]) {
                     sh "sed -i 's/SENS_ACCESS_KEYvalue/${SENS_ACCESS_KEY}/g' deployment.yaml"
                 }
-                // withCredentials([string(credentialsId: 'SENS_MYPHONENUM', variable: 'SENS_MYPHONENUM')]) {
-                //     sh "sed -i 's/SENS_MYPHONENUMvalue/${SENS_MYPHONENUM.toString()}/g' deployment.yaml"
-                // }
-                withCredentials([string(credentialsId: 'SENS_SECRET_KEY', variable: 'SENS_SECRET_KEY')]) {
-                    sh "sed -i 's/SENS_SECRET_KEYvalue/${SENS_SECRET_KEY}/g' deployment.yaml"
+                withCredentials([string(credentialsId: 'SENS_MYPHONENUM', variable: 'SENS_MYPHONENUM')]) {
+                    sh "sed -i 's/SENS_MYPHONENUMvalue/${SENS_MYPHONENUM}/g' deployment.yaml"
                 }
+                // withCredentials([string(credentialsId: 'SENS_SECRET_KEY', variable: 'SENS_SECRET_KEY')]) {
+                //     sh "sed -i 's/SENS_SECRET_KEYvalue/${SENS_SECRET_KEY}/g' deployment.yaml"
+                // }
                 step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID])
             }
         }
