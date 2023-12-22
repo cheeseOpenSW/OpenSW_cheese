@@ -1,7 +1,5 @@
 //connect database
-//require('dotenv').config({path: "./config/database.env"});
 const mysql = require ('mysql2');
-//const intport = parseInt(process.env.DB_PORT, 10);
 
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
@@ -18,9 +16,6 @@ module.exports = pool;  //모듈로 내보내기
 
 // 스케줄링을 위한 패키지 추가
 const schedule = require('node-schedule');
-//require('dotenv').config({path: "./config/sens.env"}); // sens.env 불러오기
-
-//require('dotenv').config({path: "./config/gpt.env"}); // gpt.env 불러오기
 
 // 기본 설정
 const port = 5000,
@@ -68,8 +63,6 @@ app.get(
     {res.render("users/login.ejs");}
 );
 
-
-
 app.listen(port,() => {
   const dir = "./uploads";
   if (!fs.existsSync(dir)) {
@@ -78,16 +71,3 @@ app.listen(port,() => {
   console.log("서버 실행 중");
   }
 );
-
-
-// const spawn = require('child_process').spawn;
-
-// const result = spawn('python', ['graph.py'));
-
-// result.stdout.on('data', function(data) {
-//     console.log(data.toString());
-// });
-
-// result.stderr.on('data', function(data) {
-//     console.log(data.toString());
-// });
