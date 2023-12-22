@@ -19,40 +19,42 @@ exports.createUser = async function (
     dementia_grade,
     medicine,
     address
-  ) 
-{
-  try {
-    // 비밀번호 암호화
-    const hashedPassword = await crypto
-      .createHash("sha512")
-      .update(password)
-      .digest("hex");
+  ) {
+    try {
+  
+      // 비밀번호 암호화
+      const hashedPassword = await crypto
+        .createHash("sha512")
+        .update(password)
+        .digest("hex");
+  
+      const insertUserPhoneParams = [
+        gd_phone,
+        user_name
+      ];
+      const insertUserInfoParams = [
+        user_id,
+        hashedPassword,
+        relationship,
+        gd_phone
+      ];
+      const insertPatientParams = [
+        user_id,
+        patient_name,
+        birth_date,
+        dementia_grade,
+        medicine,
+        gender,
+        address
+      ];
 
-    const insertUserPhoneParams = [
-      gd_phone,
-      user_name
-    ];
-    const insertUserInfoParams = [
-      user_id,
-      hashedPassword,
-      relationship,
-      gd_phone
-    ];
-    const insertPatientParams = [
-      user_id,
-      patient_name,
-      birth_date,
-      dementia_grade,
-      medicine,
-      gender,
-      address
-    ];
-    const userIdResult = await usersModel.insertUserInfo(pool, insertUserPhoneParams, insertUserInfoParams, insertPatientParams);
-    return '성공';
-  } catch (err) {
-    return 'createUserError';
-  }
-};
+      const userIdResult = await usersModel.insertUserInfo(pool, insertUserPhoneParams, insertUserInfoParams, insertPatientParams);
+
+      return '성공';
+    } catch (err) {
+        return 'createUserError';
+    }
+  };
 
   // 아이디 확인
   exports.userIdCheck = async function (user_id) {
