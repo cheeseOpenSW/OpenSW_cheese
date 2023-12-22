@@ -1,8 +1,8 @@
 # 🧀치즈 : 치매 가디언즈🧀 (Cheese : Dementia-Guardians)
-2023-1 성신여대 서버시스템구축실습 1팀  <b>가디언즈</b>
+2023-2 성신여대 오픈소스소프트웨어 2팀
 <p align="center">
   <img src="https://user-images.githubusercontent.com/80445246/245830427-cdd7d976-233b-4f13-bf4c-a9599c9999d8.png" style="width:200px; height:200px">
- </p>
+</p>
 
 ## 📖목차
 1. [프로젝트 소개](#프로젝트-소개)
@@ -31,23 +31,17 @@
 
 ## 👨‍👩‍👧‍👦팀원 소개
 - <b>😎최승희</b>(컴퓨터공학과 20211150) <br>
-  로그인, 회원가입, 로그아웃, SMS 전송, 복용약 알림, 추억 사진 업로드<br>
--  <b>🫡박민주</b>(컴퓨터공학과 20211126) <br>
-  로그인, 회원가입, 로그아웃, SMS 전송,복용약 알림<br>
+  CI/CD 파이프라인 구축<br>
 - <b>🫡박수빈</b>(컴퓨터공학과 20211128)  <br>
-  캘린더, 추억 사진 업로드<br>
--  <b>🫡이하은</b>(컴퓨터공학과 20211145) <br>
-  캘린더, 추억 사진 업로드<br>
+  CI/CD 파이프라인 구축<br>
 -  <b>🫡한다경</b>(컴퓨터공학과 20211153)  <br>
- 캘린더, SMS 전송<br>
-  
-⚡그외 부분은 전체 팀원이 참여하였습니다.<br>
+ CI/CD 파이프라인 구축<br>
 
 ## 🔎배포 주소
-➡️http://dementiaguardians.site/
+➡️http://34.64.79.34/ 
   
 ## 🔗데모 영상
-➡️https://drive.google.com/file/d/1ZMHqfsx6vgq1vBbidwAj9ZRgh3pym6Qa/view?usp=sharing
+➡️https://drive.google.com/drive/folders/1Vr8R_Wfkb215UD5YmWQ01S1JX_Y7gk_m
 
 
   
